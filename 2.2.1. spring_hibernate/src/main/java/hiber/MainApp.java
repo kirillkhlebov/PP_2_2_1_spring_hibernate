@@ -39,21 +39,15 @@ public class MainApp {
         List<User> users = userService.listUsers();
         printUsers(users);
 
-        List<User> usersByCar = userService.findUsersByCar("Volvo", 22);
-        printUsers(usersByCar);
+        User userByCar = userService.findUsersByCar("Volvo", 22);
+        System.out.println(userByCar.toString());
 
         context.close();
     }
 
     public static void printUsers(List<User> userList) {
         for (User user : userList) {
-            System.out.println("Id = " + user.getId());
-            System.out.println("First Name = " + user.getFirstName());
-            System.out.println("Last Name = " + user.getLastName());
-            System.out.println("Email = " + user.getEmail());
-            System.out.println("Car model = " + user.getCar().getModel());
-            System.out.println("Car series = " + user.getCar().getSeries());
-            System.out.println("===========================");
+            System.out.println(user.toString());
         }
     }
 }
